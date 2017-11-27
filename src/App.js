@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Router from 'react-router'
+
 import Child from './Components/child'
 
 import './App.css';

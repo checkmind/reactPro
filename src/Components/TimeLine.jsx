@@ -3,15 +3,28 @@ import Myhead from './Common/header'
 import MyFoot from './Common/footer'
 import Mybody from './Common/bodyer'
 
-import  '../styles/module/main.less'
+
+import  '../styles/module/timeline.less'
 
 class TimeLine extends Component {
   render() {
-  	let headText = '此情可待成追忆'
+
     return (
-      <div className="App">
-      	<Myhead headText={headText} />
-        <div className='bodyer'>这是时间线</div>
+      <div className="timeline">
+        <div className='bodyer'>
+            <div className='mailBody'>
+                <li>奉天承运，皇帝赵越</li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </div>
+        </div>
         <MyFoot/>
       </div>
     );

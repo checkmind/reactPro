@@ -9,8 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Myhead/>
-        <div className='bodyer'>这是主页</div>
+        <div className='bodyer'>吾</div>
         <MyFoot/>
       </div>
     );

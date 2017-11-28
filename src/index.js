@@ -15,9 +15,9 @@ import Chatting from './Components/Chatting/Chatting'
 ReactDOM.render((
   	<Router>
   		<div className='Router'>
+  			<Route path="/timeLine" component={TimeLine}/>
+  			<Route path="/chatting" component={Chatting}/>
 	    	<Route path="/index" component={Main}/ >
-	    	<Route path="/timeLine" component={TimeLine}/>
-	    	<Route path="/chatting" component={Chatting}/>
   		</div>
   	</Router>
 ), document.getElementById('root'))

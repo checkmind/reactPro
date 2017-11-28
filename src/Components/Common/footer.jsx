@@ -12,8 +12,8 @@ class Child extends Component {
 
     return (<div className='footer'>
     			<Link to='/timeLine'>追忆</Link>
-    			<Link to='/chatting'>尺素</Link>
-    			<Link to='/index'>主页</Link>
+    			<Link to='/chatting'>雁书</Link>
+    			<Link to='/index'>吾</Link>
     		</div>)
   }
   componentWillMount(rout) {

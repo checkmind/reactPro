@@ -9,29 +9,43 @@
         width: 100%;
         overflow-y: hidden;
         overflow-x: auto;
-        white-space:nowrap;
-        justify-content:center;
+        white-space:normal;
         display: flex;
+        box-shadow: 0 0px 16px black;
         li{
             width: .32rem;
             height: 3rem;
             background: @mailBack;
             margin-left: 1px;
-            box-sizing: border-box;
-            padding-top: 40px;
             text-align: center;
             white-space:normal;
             flex-grow:0;
             flex-shrink:0;
             font-size: 20px;
             color: black;
+            margin:0 1px;
+            display: flex;
+            align-items:center;
+            div{
+                padding-top: 40px;
+                padding-bottom: 40px;
+                box-sizing: border-box;
+            }
+            span{
+                width: 32px;
+                display: block;
+            }
+        }
+        li:nth-child(1){
+            
         }
       }
 }
 
 
 .timeline .bodyer{
-   
+   display: flex;
+   align-items:center;
 }
 
 

@@ -14,14 +14,17 @@ class Chatting extends Component {
 				value: "",
 				loverName: "嫦娥",
 				message: [{
+					id: 0,
 					sender: 0,
 					message: '第一句话',
 					date: "2017-03-16 21:03:00"
 				},{
+					id: 1,
 					sender: 1,
 					message: '第er 句话',
 					date: "2017-03-16 21:04:00"
 				},{
+					id: 2,
 					sender: 0,
 					message: '第一san句话',
 					date: "2017-03-16 21:05:00"
@@ -35,21 +38,20 @@ class Chatting extends Component {
 		// 填充聊天信息
 		this.drawWords = ()=>{ 
 			let res='';
+			let type;
 			if(this.refs.bodyer){
 				this.refs.bodyer.scrollTop = 9999
 			}
 			return this.state.message.map(function(val){
-				if(val.sender){
-					return  <li className='right' key={Math.random()}>
+				if(val.sender)
+					type = 'right'
+				else
+					type = 'left'
+				return      (<li className={type} key={val.id}>
 								<div className='img'></div>
 				        		<div className='words'>{val.message}</div>
-			        		</li>
-				} else {
-					return  <li className='left' key={Math.random()}>
-				        		<div className='img'></div>
-				        		<div className='words'>{val.message}</div>
-				        	</li>
-				}
+			        		</li>)
+				
 			})
 		}
 		// 发送消息
@@ -59,7 +61,8 @@ class Chatting extends Component {
 			message.push({
 					sender: 0,
 					message: this.state.value,
-					date: new Date()
+					date: new Date(),
+					id: Math.random()
 				})
 			this.setState({
 				message: message
@@ -67,8 +70,9 @@ class Chatting extends Component {
 			this.setState({
 				value: ''
 			})
+			this.refs.bodyer.scrollTop = 9999
 			// 发送完聚焦
-			this.refs.input_value.focus();
+		//	this.refs.input_value.focus();
 		}
 	}
 	render() {
@@ -85,7 +89,7 @@ class Chatting extends Component {
 	    return (
 	      <div className='Chatting'>
 	        <div className='header'>
-	             <Link to='/index' className='down-arrow'></Link>
+	             <Link to={'/'+localStorage.myPageRouter||''} className='down-arrow'></Link>
 	             <h3>{loverName}</h3>
 	        </div>
 	        <div className='bodyer' ref='bodyer'>

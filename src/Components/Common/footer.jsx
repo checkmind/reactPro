@@ -16,8 +16,8 @@ class Child extends Component {
     			<Link to='/index'>吾</Link>
     		</div>)
   }
-  componentWillMount(rout) {
-  	console.log(rout)
+  componentWillMount() {
+  	
   }
 }
 

@@ -9,7 +9,7 @@ html,body {
   height: 100%;
   font-size: 625%;
   background: #fcf0cc;
-  background: @antherBack;
+  background: #985125;
 }
 body{
 	font-size: 16px;
@@ -30,12 +30,13 @@ input{
 	height: 100%;
 	max-width: 768px;
 	margin:0 auto;
+	background: @bodyerBack;
+	background-size: 100% 100%;
 }
 .Router{
 	width: 100%;
 	height:100%;
 }
-
 
 .down-arrow {  
     width: 10px;  
@@ -82,8 +83,7 @@ input{
     width: 100%;
     flex:1;
     background: rgb(250, 250, 250);
-    background: @bodyerBack;
-    background-size: 100% 100%;
+    background: none;
     box-sizing: border-box;
     padding:.18rem;   
 }
@@ -92,7 +92,6 @@ input{
     width: 100%;
     box-sizing: border-box;
     z-index: 2;
-    background: white;
     display: flex;
     position: relative;
     align-items:center;

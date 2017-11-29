@@ -19,6 +19,7 @@
     flex:1;
     box-sizing: border-box;
     padding:.18rem;
+    padding-bottom: 50px;
     li{
     	width: 100%;
     	display: flex;
@@ -75,13 +76,15 @@
 }
 .Chatting .footer{
 	padding-right: 40px;
+    position: fixed;
+    bottom:0;
     a{
     	display: flex;
     	width: 30px;
     	height: 30px;
     	line-height: 30px;
     	border-radius: 50%;
-    	border:1px solid #ccc;
+    	border:1px solid #985125;
     	margin:0 10px 0;
     	justify-content:center;
     	align-items:center;
@@ -94,6 +97,8 @@
     a:nth-child(4){
     	position: absolute;
     	right: 0;
+        top: 50%;
+        margin-top: -15px;
     	transition:width .3s, right .3s;
     }
     input{

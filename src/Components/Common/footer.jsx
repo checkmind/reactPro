@@ -9,11 +9,13 @@ import '../../styles/footer.less'
 
 class Child extends Component {
   render() {
-
+    let classname = [];
+    let page = this.props.page;
+    classname[+page] = 'chooseLink';
     return (<div className='footer'>
-    			<Link to='/timeLine'>追忆</Link>
-    			<Link to='/chatting'>雁书</Link>
-    			<Link to='/index'>吾</Link>
+    			<Link to='/timeLine' className={classname[0]}>追忆</Link>
+    			<Link to='/chatting' className={classname[1]}>雁书</Link>
+    			<Link to='/index' className={classname[2]}>吾</Link>
     		</div>)
   }
   componentWillMount() {

@@ -6,7 +6,8 @@ class Child extends Component {
 		super();
 		this.state = {
 			words : [],
-			maxLength: 8
+			maxLength: 8,
+			show: true
 		};
 		this.changeWords = (words)=>{
 			let arr,
@@ -59,13 +60,30 @@ class Child extends Component {
 
 			return arr;
 		}
+		this.closeBook = (ev)=>{
+			if(ev.target == document.querySelector('.mailBody')){
+				this.setState({
+					show: false
+				})
+				console.log('close')
+			}
+		}
 	}
 	render() {
-		let words = [];
-		words = this.getWordsAndFill(['锄禾','李绅','锄禾日当午','汗滴禾下土','谁知盘中餐','粒粒皆辛苦']);
-	    return <div className='mailBody' ref='mailBody'>
-						{this.fillWords(words)}
-			    </div>
+		let words = [],
+			el;
+		if(this.state.show){
+
+			words = this.getWordsAndFill(['锄禾','李绅','锄禾日当午','汗滴禾下土','谁知盘中餐','粒粒皆辛苦']);
+			words = this.fillWords(words)
+			el = (<div className='mailBody' ref='mailBody' onClick={this.closeBook}>
+						{words}
+			    	</div>);
+			return el;
+		} else {
+			return '';
+		}
+	    
 	}
 }
 export default Child

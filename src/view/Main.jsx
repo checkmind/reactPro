@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='bodyer'>吾</div>
-        <MyFoot/>
+        <MyFoot page='2'/>
       </div>
     );
   }

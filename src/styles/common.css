@@ -97,5 +97,7 @@ input{
     position: relative;
     align-items:center;
     box-shadow: 0 0 1px rgba(0, 0, 0, 0.03), 2px 0 5px rgba(0, 0, 0, 0.15);
-
+    .chooseLink{
+        color: red;
+    }
 }

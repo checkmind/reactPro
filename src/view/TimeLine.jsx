@@ -20,7 +20,7 @@ class TimeLine extends Component {
 		    <div className='bodyer'>
 		        <MailBody/>
 		    </div>
-		    <MyFoot/>
+		    <MyFoot page='0'/>
 		  </div>
 		);
 	}

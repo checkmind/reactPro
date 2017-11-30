@@ -8,11 +8,14 @@
       .mailBody{
         width: 100%;
         overflow-y: hidden;
+        height: 300px;
         overflow-x: auto;
         white-space:normal;
         display: flex;
         flex-direction:row-reverse;
         box-shadow: 0 0px 16px black;
+        position: relative;
+        border-radius: 5px;
         li{
             width: .32rem;
             height: 3rem;
@@ -41,10 +44,38 @@
         li:nth-child(1){
             
         }
+        &:after{
+            content:'\2716';
+            position: fixed;
+            bottom: .8rem;
+            width: .3rem;
+            height: .3rem;
+            border:1px solid black;
+            border-radius: 50%;
+            left: 50%;
+            margin-left: -.15rem;
+            text-align: center;
+            line-height: .3rem;
+        }
       }
 }
 
-
+.mailBody::-webkit-scrollbar-track-piece {
+  background:none;
+  border:none;
+}
+.mailBody::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+.mailBody::-webkit-scrollbar-thumb {
+  width: 0;
+  height: 0;
+}
+.mailBody::-webkit-scrollbar-thumb:hover {
+  width: 0;
+  height: 0;
+}
 .timeline .bodyer{
    display: flex;
    align-items:center;

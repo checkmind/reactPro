@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import Myhead from './Common/header'
-import MyFoot from './Common/footer'
-import Mybody from './Common/bodyer'
+import  '../styles/module/child.css'
 
-
-import  '../styles/module/timeline.less'
-
-class TimeLine extends Component {
-	
-	constructor(){
+class Child extends Component {
+	constructor() {
 		super();
 		this.state = {
 			words : [],
@@ -21,15 +15,16 @@ class TimeLine extends Component {
 
 			arr = words.split('')
 			for(let i = 0,len=arr.length;i<len;i+=maxLength){
-				console.log(i,maxLength)
 				let message = words.substr(i,maxLength)
 				wordsArr.push(message);
 			}
-
 			return wordsArr;
 		}
 		this.fillWords = (words)=>{
-			let arr = [];
+			let arr = [],
+				fatherWidth = document.querySelector("#root").clientWidth-36;
+			if(this.refs.mailBody)
+				fatherWidth = this.refs.mailBody.clientWidth;
 			words.map(function(val){
 				let item= val.split('').map(function(text){
 								return <span key={Math.random()}>{text}</span>
@@ -37,6 +32,17 @@ class TimeLine extends Component {
 				arr.push(<li key={Math.random()}><div>{item}</div></li>)
 				return val;
 			})
+			// 补充空白
+			if(words.length*34 < fatherWidth){
+				let num  =Math.ceil(fatherWidth/34-words.length)
+				for(let i = 0;i<num;i++){
+					if(i%2===0)
+						arr.push(<li key={Math.random()}><div></div></li>)
+					else
+						arr.unshift(<li key={Math.random()}><div></div></li>)	
+					
+				}
+			}
 			return arr;
 		}
 		/*
@@ -53,23 +59,13 @@ class TimeLine extends Component {
 
 			return arr;
 		}
-	}	
+	}
 	render() {
 		let words = [];
-
-		 words = this.getWordsAndFill(['信乎','吾日三省吾身，为人谋而不忠乎？与朋友交而不信乎？传不习乎？信近于义，言可复也。”《左传。宣公二年》：“麂退，叹而言曰：‘不忘恭敬，民之主也。贼民之主。不忠；弃君之命，不信。有一于此，不如死也。’触槐而死。']);
-		return (
-		  <div className="timeline">
-		    <div className='bodyer'>
-		        <div className='mailBody'>
-
-					{this.fillWords(words)}
-		        </div>
-		    </div>
-		    <MyFoot/>
-		  </div>
-		);
+		words = this.getWordsAndFill(['锄禾','李绅','锄禾日当午','汗滴禾下土','谁知盘中餐','粒粒皆辛苦']);
+	    return <div className='mailBody' ref='mailBody'>
+						{this.fillWords(words)}
+			    </div>
 	}
 }
-
-export default TimeLine;
+export default Child

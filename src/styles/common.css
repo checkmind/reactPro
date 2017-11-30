@@ -86,9 +86,10 @@ input{
     background: none;
     box-sizing: border-box;
     padding:.18rem;   
+    padding-bottom: 60px;
 }
 .footer{
-    height: 48px;
+    height: 60px;
     width: 100%;
     box-sizing: border-box;
     z-index: 2;

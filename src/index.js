@@ -8,9 +8,9 @@ import {
 	 Route
 	} from 'react-router-dom';
 
-import Main from './Components/Main.jsx';
-import TimeLine from './Components/TimeLine.jsx';
-import Chatting from './Components/Chatting/Chatting'
+import Main from './view/Main.jsx';
+import TimeLine from './view/TimeLine.jsx';
+import Chatting from './view/Chatting/Chatting'
 
 ReactDOM.render((
   	<Router>

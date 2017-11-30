@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Myhead from './Common/header'
-import MyFoot from './Common/footer'
-import Mybody from './Common/bodyer'
+import Myhead from '../Components/Common/header'
+import MyFoot from '../Components/Common/footer'
+import Mybody from '../Components/Common/bodyer'
 
 import  '../styles/module/main.less'
 

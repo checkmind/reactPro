@@ -51,8 +51,12 @@ class Chatting extends Component {
 								<div className='img'></div>
 				        		<div className='words'>{val.message}</div>
 			        		</li>)
-				
 			})
+		}
+		// 判断发送聊天消息或打开更多页面
+		this.judgeMethod = ()=>{
+			if(this.state.value)
+				this.sendWords();
 		}
 		// 发送消息
 		this.sendWords = ()=>{
@@ -74,6 +78,7 @@ class Chatting extends Component {
 			// 发送完聚焦
 		//	this.refs.input_value.focus();
 		}
+		// 
 	}
 	render() {
 		let {more,value,loverName} = this.state;
@@ -89,7 +94,7 @@ class Chatting extends Component {
 	    return (
 	      <div className='Chatting'>
 	        <div className='header'>
-	             <Link to={'/'+localStorage.myPageRouter||''} className='down-arrow'></Link>
+	              <span className='down-arrow' onClick={()=>{ window.history.back()}}></span>
 	             <h3>{loverName}</h3>
 	        </div>
 	        <div className='bodyer' ref='bodyer'>
@@ -99,7 +104,7 @@ class Chatting extends Component {
 	            <a href="javascript:;" className='voice'></a>
                 <input type="text" onChange={this.changSend} value={value} ref='input_value'/>
                 <a href="javascript:;" className='icon'></a>
-                <a href="javascript:;" className={more} onClick={this.sendWords}>{icon}</a>
+                <a href="javascript:;" className={more} onClick={this.judgeMethod}>{icon}</a>
 	        </div>
 	      </div>
 	    );

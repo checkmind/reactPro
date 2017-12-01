@@ -76,7 +76,7 @@ class Chatting extends Component {
 			})
 			this.refs.bodyer.scrollTop = 9999
 			// 发送完聚焦
-		//	this.refs.input_value.focus();
+			this.refs.input_value.focus();
 		}
 		// 
 	}
@@ -90,7 +90,8 @@ class Chatting extends Component {
 			icon = '发送';
 			more = 'send';
 		}
-
+		if(this.refs.bodyer)
+			this.refs.bodyer.scrollTop = 9999
 	    return (
 	      <div className='Chatting'>
 	        <div className='header'>
@@ -109,9 +110,10 @@ class Chatting extends Component {
 	      </div>
 	    );
 	}
-	componentDidMount() {
+	componentDidUpdate() {
 		this.refs.bodyer.scrollTop = 9999
 	}
+	
 }
 
 export default Chatting;

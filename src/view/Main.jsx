@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {template} from '../mixins/template'
+
 import Myhead from '../Components/Common/header'
 import MyFoot from '../Components/Common/footer'
 import Mybody from '../Components/Common/bodyer'
@@ -16,4 +18,7 @@ class App extends Component {
   }
 }
 
-export default App;
+
+export default template({
+    component: App
+});

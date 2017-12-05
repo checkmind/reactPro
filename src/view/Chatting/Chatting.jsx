@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {template} from '../../mixins/template'
+import { is, fromJS} from 'immutable';
 import {
   BrowserRouter as Router,
   Route,
@@ -7,8 +9,10 @@ import {
 import '../../styles/module/chatting.less'
 class Chatting extends Component {
 	
-	constructor() {
-		super()
+	constructor(props, context) {
+		super(props, context)
+		 const { store } = this.context;
+		 console.log(this.context)
 		this.state = {
 				more: "more",
 				value: "",
@@ -39,9 +43,11 @@ class Chatting extends Component {
 		this.drawWords = ()=>{ 
 			let res='';
 			let type;
+			let that = this;
 			if(this.refs.bodyer){
 				this.refs.bodyer.scrollTop = 9999
 			}
+			console.log(this.context)
 			return this.state.message.map(function(val){
 				if(val.sender)
 					type = 'right'
@@ -62,6 +68,7 @@ class Chatting extends Component {
 		this.sendWords = ()=>{
 			// state不能直接改变
 			let message = this.state.message;
+			this.props.judgeLogin(true) // 发送就登录
 			message.push({
 					sender: 0,
 					message: this.state.value,
@@ -83,6 +90,7 @@ class Chatting extends Component {
 	render() {
 		let {more,value,loverName} = this.state;
 		let icon,style
+		console.log(this.context)
 		if(!value){
 			icon = '+';
 			more = 'more';
@@ -110,10 +118,18 @@ class Chatting extends Component {
 	      </div>
 	    );
 	}
-	componentDidUpdate() {
+	componentWillUpdate(nextProps, nextState) {
+        return !is(fromJS(this.props), fromJS(nextProps)) || !is(fromJS(this.state),fromJS(nextState))
+    }
+	componentDidMount() {
 		this.refs.bodyer.scrollTop = 9999
 	}
 	
 }
-
-export default Chatting;
+// console.log(React.PropTypes)
+// Chatting.contextTypes = {
+//   store: React.PropTypes.object
+// }
+export default template({
+    component: Chatting
+});

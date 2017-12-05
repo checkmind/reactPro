@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import {template} from '../mixins/template'
+
 import Myhead from '../Components/Common/header'
 import MyFoot from '../Components/Common/footer'
 import Mybody from '../Components/Common/bodyer'
@@ -63,4 +65,7 @@ class TimeLine extends Component {
 	}
 }
 
-export default TimeLine;
+
+export default template({
+    component: TimeLine
+});

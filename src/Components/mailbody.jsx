@@ -78,9 +78,11 @@ class Child extends Component {
 
 			words = this.getWordsAndFill(['锄禾','李绅','锄禾日当午','汗滴禾下土','谁知盘中餐','粒粒皆辛苦']);
 			words = this.fillWords(words)
-			el = (<div className='mailToast'><div className='mailBody' ref='mailBody' onClick={this.closeBook}>
+			el = (<div className='mailToast'>
+					<div className='mailBody' ref='mailBody' onClick={this.closeBook}>
 						{words}
-			     </div></div>);
+			     	</div>
+			     </div>);
 			return el;
 		} else {
 			return '';

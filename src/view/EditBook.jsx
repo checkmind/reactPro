@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import {template} from '../mixins/template'
 import Myhead from '../Components/Common/header'
 import MyFoot from '../Components/Common/footer'
 import Mybody from '../Components/Common/bodyer'
@@ -9,7 +11,7 @@ import MailBody from '../Components/mailbody'
 
 import  '../styles/module/editBook.less'
 
-class TimeLine extends Component {
+class EditBook extends Component {
 	
 	constructor(){
 		super();
@@ -30,4 +32,7 @@ class TimeLine extends Component {
 	}
 }
 
-export default TimeLine;
+
+export default template({
+    component: EditBook
+});

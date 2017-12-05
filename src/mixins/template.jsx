@@ -4,8 +4,10 @@
 */
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
+import { is, fromJS} from 'immutable';
+import *as action from '../Redux/Action/index';
 
-const template = mySeting => {
+export const template = mySeting => {
 	 let seting = {
         id: '', //应用唯一id表示
         url: '', //请求地址
@@ -15,7 +17,27 @@ const template = mySeting => {
     for(let key in mySeting){
     	seting[key] = mySeting[key];
     }
-    class parent extends Component {
+    class Index extends Component {
+    	static defaultProps = { seting }
+    	
+    	constructor (props, context){
+    		super(props, context)
+    	}
 
+    	render() {
+    		console.log(this.props.state.toJS())
+            return <this.props.seting.component {...this.props} state={this.props.state.toJS()}/>;  // 把immutabel类型再转为js类型
+        }
     }
+    // Index其实是顶级组件，包括了其他模板组件，connect将其与其他路由组件链接起来
+     
+     return connect(state => { 
+        
+        let {loginOrNot} = state;
+        return { 
+        	state: state['fetchData'],
+            loginOrNot
+        } 
+    }, action)(Index); //连接redux
 } 
+

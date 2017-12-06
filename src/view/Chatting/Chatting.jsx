@@ -8,14 +8,15 @@ import {
   Link
 } from 'react-router-dom';
 import '../../styles/module/chatting.less'
+
 class Chatting extends Component {
 	static childContextTypes = {
-        store : PropTypes.any
+        loginOrNot : PropTypes.any
     }
 	constructor(props, context) {
 		super(props, context)
 		 const { store } = this.context;
-		 console.log(this.props)
+		 console.log(props)
 		this.state = {
 				more: "more",
 				value: "",
@@ -73,7 +74,7 @@ class Chatting extends Component {
 			// state不能直接改变
 			let message = this.state.message;
 			this.props.judgeLogin(true) // 发送就登录
-			console.log(this.props.loginOrNot.isLogin)
+			console.log(this.props)
 			message.push({
 					sender: 0,
 					message: this.state.value,
@@ -94,7 +95,7 @@ class Chatting extends Component {
 	}
 	getChildContext(){
         return{
-            store:this.props.store
+            loginOrNot:this.props.store
         }
     }
 	render() {

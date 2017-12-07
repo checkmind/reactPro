@@ -25,7 +25,6 @@ export const template = mySeting => {
     	}
 
     	render() {
-    		console.log(this.props.state.toJS())
             return <this.props.seting.component {...this.props} state={this.props.state.toJS()}/>;  // 把immutabel类型再转为js类型
         }
     }
@@ -33,10 +32,10 @@ export const template = mySeting => {
      
      return connect(state => { 
         
-        let {loginOrNot} = state;
+       // let {loginOrNot} = state;
         return { 
         	state: state['fetchData'],
-            loginOrNot
+            ...state
         } 
     }, action)(Index); //连接redux
 } 

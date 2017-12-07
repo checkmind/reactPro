@@ -8,6 +8,10 @@ import Mybody from '../Components/Common/bodyer'
 import  '../styles/module/main.less'
 
 class App extends Component {
+  constructor(props, context){
+  	super(props, context)
+  	console.log(this.props)
+  }
   render() {
     return (
       <div className="App">

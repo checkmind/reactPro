@@ -16,8 +16,8 @@ import  '../styles/module/timeline.less'
 
 class TimeLine extends Component {
 	
-	constructor(){
-		super();
+	constructor(props,context){
+		super(props,context);
 		this.state = {
 			"open": false
 		}
@@ -37,6 +37,8 @@ class TimeLine extends Component {
 				open: false
 			})
 		}
+		
+		console.log(this.props)
 	}	
 	render() {
 		let list = [],
@@ -59,7 +61,7 @@ class TimeLine extends Component {
 		    	{mailbody}
 		        <Link to='/EditBook' className='btnRadius'>+</Link> 
 		    </div>
-		    <MyFoot page='0'/>
+		    <MyFoot page='0' unRead={this.props.state.unRead}/>
 		  </div>
 		);
 	}

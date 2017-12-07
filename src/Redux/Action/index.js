@@ -1,6 +1,7 @@
 export const IS_LOGIN = 'IS_LOGIN';  //是否登录
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const UNREAD = 'UNREAD' // 是否有未读消息
 
 //开始获取数据
 export const requestPosts = path => {
@@ -26,4 +27,11 @@ export const receivePosts = (path, json) => {
         path,
         json 
     }
+}
+
+export const readConfig = (unread) =>{
+  return {
+    type: UNREAD,
+    unread
+  }
 }

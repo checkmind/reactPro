@@ -1,4 +1,4 @@
-import { IS_LOGIN } from '../Action/index'
+import { IS_LOGIN, UNREAD } from '../Action/index'
 import { REQUEST_POSTS, RECEIVE_POSTS } from '../Action/index'
 import Immutable from 'immutable';
 
@@ -17,6 +17,7 @@ export const fetchData = (state = defaultlState , action = {}) => {
 }
 
 export const loginOrNot = (state = {}, action = {} )=>{
+    console.log(action.type)
 	switch(action.type){
 		case IS_LOGIN:
             state['isLogin'] = action.isLogin
@@ -24,4 +25,14 @@ export const loginOrNot = (state = {}, action = {} )=>{
 		default: 
 			return state
 	}
+}
+export const unRead = (state = {}, action = {} ) =>{
+    switch(action.type){
+        case unRead:
+            state['unread'] = action.unread
+            console.log(state)
+            return state;
+        default:
+            return state;
+    }
 }

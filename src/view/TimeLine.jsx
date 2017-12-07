@@ -61,7 +61,7 @@ class TimeLine extends Component {
 		    	{mailbody}
 		        <Link to='/EditBook' className='btnRadius'>+</Link> 
 		    </div>
-		    <MyFoot page='0' unRead={this.props.state.unRead}/>
+		    <MyFoot page='0' unRead={this.props.unRead.unRead}/>
 		  </div>
 		);
 	}

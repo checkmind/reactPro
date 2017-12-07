@@ -27,9 +27,10 @@ export const loginOrNot = (state = {}, action = {} )=>{
 	}
 }
 export const unRead = (state = {}, action = {} ) =>{
+    console.log(action.unread)
     switch(action.type){
-        case unRead:
-            state['unread'] = action.unread
+        case UNREAD:
+            state['unRead'] = action.unread
             console.log(state)
             return state;
         default:

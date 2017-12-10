@@ -16,7 +16,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className='bodyer'>吾</div>
-        <MyFoot page='2'/>
+        <MyFoot page='2' unRead={this.props.unRead.unRead}/>
       </div>
     );
   }

@@ -16,7 +16,7 @@ class Chatting extends Component {
 	constructor(props, context) {
 		super(props, context)
 		 const { store } = this.context;
-		 this.props.readConfig(5)
+		 this.props.readConfig(0)
 		this.state = {
 				more: "more",
 				value: "",
@@ -74,7 +74,6 @@ class Chatting extends Component {
 			// state不能直接改变
 			let message = this.state.message;
 			this.props.judgeLogin(true) // 发送就登录
-			console.log(this.props)
 			message.push({
 					sender: 0,
 					message: this.state.value,

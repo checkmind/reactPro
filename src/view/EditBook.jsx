@@ -27,6 +27,12 @@ class EditBook extends Component {
 		            <h3>新建竹简</h3>
 		            <a href='javascript:;' className='saveIcon' />
 		        </div>
+		        <div className='bodyer'>
+		        	<label>标题：</label>
+		        	<div contentEditable='true' className='editTitel' placeholder='请输入标题'></div>
+		        	<label>内容：</label>
+		        	<div contentEditable='true' className='editContent'></div>
+		        </div>
 		  </div>
 		);
 	}

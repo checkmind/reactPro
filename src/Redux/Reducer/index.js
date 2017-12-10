@@ -31,9 +31,10 @@ export const unRead = (state = {}, action = {} ) =>{
     switch(action.type){
         case UNREAD:
             state['unRead'] = action.unread
-            console.log(state)
+            
             return state;
         default:
+            state['unRead'] = 5
             return state;
     }
 }

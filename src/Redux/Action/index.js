@@ -3,6 +3,7 @@ export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const UNREAD = 'UNREAD' // 是否有未读消息
 
+export const CHAATING = 'CHAATING'
 //开始获取数据
 export const requestPosts = path => {
   return {
@@ -35,3 +36,5 @@ export const readConfig = (unread) =>{
     unread
   }
 }
+
+

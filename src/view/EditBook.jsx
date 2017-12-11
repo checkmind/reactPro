@@ -22,12 +22,11 @@ class EditBook extends Component {
 			"content": ''
 		}
 
-		this.changeWords = function(){
+		this.changeWords = ()=>{
 			let arr = this.state.words;
-			arr.push(this.state.title); //先放入标题
+			arr.push(this.refs.editTitel.innerText); //先放入标题
 			let str = ''
-			console.log(arr)
-			this.state.content.split('').forEach(function(val, index){
+			this.refs.editContent.innerText.split('').forEach(function(val, index){
 				if(val!=' ')
 					str+= val;
 				else{
@@ -36,7 +35,6 @@ class EditBook extends Component {
 				}
 			})
 			arr.push(str)
-			console.log(arr)
 			this.setState({
 				words: arr
 			})
@@ -45,17 +43,7 @@ class EditBook extends Component {
 			this.changeWords();
 			console.log(this.state.words)
 		}
-		this.changTitle = (ev)=>{
-			this.setState({
-				title: ev.target.value
-			})
-			console.log(this.state)
-		}
-		this.changContent = (ev)=>{
-			this.setState({
-				content: ev.target.value
-			})
-		}
+		
 	}	
 	render() {
 		let {title,content} = this.state;
@@ -68,13 +56,17 @@ class EditBook extends Component {
 		        </div>
 		        <div className='bodyer'>
 		        	<label>标题：</label>
-		        	<input type="text" 
-		        		   className='editTitel' 	
-		        		   onChange={this.changTitle} />
+		        	<div type="text" 
+		        		   className='editTitel' 
+		        		   contentEditable="true"
+		        		   ref='editTitel'> 
+		        	</div>
 		        	<label>内容：</label>
-		        	<input type='text'
-		        	   	   className='editContent' 
-		           	   	   onChange={this.changContent} />
+		        	<div type='text'
+		        	   	   className='editContent'
+		        	   	   ref='editContent'
+		        	   	   contentEditable="true"> 
+		        	 </div>
 		        	
 		        </div>
 		  </div>

@@ -10,6 +10,7 @@ import  '../styles/module/main.less'
 class App extends Component {
   constructor(props, context){
   	super(props, context)
+    this.props.getMailList();
   	console.log(this.props)
   }
   render() {

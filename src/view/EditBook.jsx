@@ -41,7 +41,7 @@ class EditBook extends Component {
 		}
 		this.saveWords = ()=>{
 			this.changeWords();
-			console.log(this.state.words)
+			window.history.go(-1)
 		}
 		
 	}	

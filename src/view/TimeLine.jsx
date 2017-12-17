@@ -37,7 +37,8 @@ class TimeLine extends Component {
 				open: false
 			})
 		}
-		
+		console.log(this.props)
+		this.props.getMailList();
 		console.log(this.props)
 	}	
 	render() {

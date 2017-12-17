@@ -33,6 +33,7 @@ export const template = mySeting => {
      return connect(state => { 
         
        // let {loginOrNot} = state;
+       console.log(...state)
         return { 
         	state: state['fetchData'],
             ...state

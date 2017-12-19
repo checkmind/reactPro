@@ -2,6 +2,7 @@ export const IS_LOGIN = 'IS_LOGIN';  //是否登录
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const UNREAD = 'UNREAD' // 是否有未读消息
+
 export const MAILLIST = 'MAILLIST'
 
 export const CHAATING = 'CHAATING'
@@ -39,7 +40,7 @@ export const readConfig = (unread) =>{
 }
 // 备忘录列表
 export const mailList = (payload)=>{
-  console.log("get mail list")
+  //console.log("get mail list")
   return {
     type: MAILLIST,
     payload
@@ -52,15 +53,14 @@ export const mailList = (payload)=>{
 **/
 export const getMailList = () => {
   return dispatch=>{
-    setTimeout(function(){
+   // setTimeout(function(){
       let items = [{
           title: "记住出门带钥匙",
           author: "杜浩",
           timer : new Date()
-      }];  
+      }];
       dispatch(mailList(items))
-    },500)
+  //  },500)
   }
-     
 }
 

@@ -10,13 +10,12 @@ import '../../styles/footer.less'
 class Child extends Component {
   constructor(props, context){
 
-    super(props, context);   
-    console.log(this.props) 
+    super(props, context);  
   }
   render() {
     let classname = [];
     let {unRead,page} = this.props;
-    
+    console.log(this.props)
     let unReadInf = ''
     classname[+page] = 'chooseLink';
     if(!unRead)

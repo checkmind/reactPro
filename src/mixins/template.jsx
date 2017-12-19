@@ -32,11 +32,13 @@ export const template = mySeting => {
      
      return connect(state => { 
         
-       // let {loginOrNot} = state;
-       console.log(...state)
+        let {loginOrNot, mailLists, unRead} = state;
+        //console.log(loginOrNot,mailList,state)
         return { 
         	state: state['fetchData'],
-            ...state
+            loginOrNot,
+            mailLists,
+            unRead
         } 
     }, action)(Index); //连接redux
 } 

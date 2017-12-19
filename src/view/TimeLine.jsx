@@ -37,13 +37,13 @@ class TimeLine extends Component {
 				open: false
 			})
 		}
-		console.log(this.props)
 		this.props.getMailList();
 		console.log(this.props)
 	}	
 	render() {
 		let list = [],
 			mailbody;
+
 		for(let i = 0;i<14;i++){
 			list.push(<li key={Math.random()} onClick={this.openBook}>
 						<p>这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录</p>

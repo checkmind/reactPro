@@ -44,6 +44,7 @@ class EditBook extends Component {
 			window.history.go(-1)
 		}
 		
+		
 	}	
 	render() {
 		let {title,content} = this.state;

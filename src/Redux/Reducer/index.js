@@ -18,7 +18,10 @@ export const fetchData = (state = defaultlState , action = {}) => {
 }
 
 export const loginOrNot = (state = {}, action = {} )=>{
-    console.log(action.type)
+    if(window.localStorage.isLogin){
+        state['isLogin'] = true
+        return state;
+    }
 	switch(action.type){
 		case IS_LOGIN:
             state['isLogin'] = action.isLogin
@@ -28,22 +31,22 @@ export const loginOrNot = (state = {}, action = {} )=>{
 	}
 }
 export const unRead = (state = {}, action = {} ) =>{
-    console.log(action.unread)
+   // console.log(action.unread)
     switch(action.type){
         case UNREAD:
             state['unRead'] = action.unread
-            
             return state;
         default:
-            state['unRead'] = 5
             return state;
     }
 }
 export const mailList = ( state = {}, action = {} ) => {
-    console.log('set mail list')
-    switch(state.type){
+    console.log('set mail list',state.type)
+    switch(action.type){
         case MAILLIST:
-            state['mailList'] = action.payload
+            state['mailLists'] = action.payload
+            console.log(state)
+            return state;
         default:
             return state;
     }

@@ -1,6 +1,8 @@
 @bodyerBack:url(../back.png);
 @antherBack:url(../body.jpg) repeat;
 @headerBack:url(../header.png) repeat;
+@close:url(../close.png);
+@edit:url(../edit.png);
 html,body {
   margin: 0;
   padding: 0;
@@ -8,8 +10,7 @@ html,body {
   width: 100%;
   height: 100%;
   font-size: 625%;
-  background: #fcf0cc;
-  background: #985125;
+  background: rgb(245, 242, 240);
 }
 body{
 	font-size: 16px;
@@ -30,7 +31,6 @@ input{
 	height: 100%;
 	max-width: 768px;
 	margin:0 auto;
-	background: @bodyerBack;
 	background-size: 100% 100%;
 }
 .Router{
@@ -88,9 +88,8 @@ input{
     width: 100%;
     display: flex;
     line-height: 48px;
-    background: white;
-    background: #985125;
-    box-shadow: 0 1px 5px #f0d9a5;
+    background: #f5f2f0;
+    box-shadow: 0 1px 5px #ccc;
     z-index: 2;
     padding:0 .1rem 0;
     box-sizing: border-box;
@@ -123,19 +122,40 @@ input{
     }
 }
 
-.btnRadius{
+.btnGroup{
+    width: 100%;
+    height: .4rem;
     position: fixed;
+    bottom: 60px;
+    left: 0;
+    display: flex;
+    justify-content:center;
+    span{
+        width: .3rem;
+        height: .3rem;
+        background-position: center;
+        background-size: 100%; 
+        text-align: center;
+        line-height: .3rem; 
+        margin:0 .1rem 0;
+    }
+    .closeToast{ 
+        background-image: @close;     
+     }
+    .editMail{
+        background-image: @edit;
+     }
+
+}
+
+.btnRadius{
     font-size: .2rem;
     width: .8rem;
     height: .3rem;
-
-    box-shadow: 0px 1px 5px black;
-    left: 50%;
-    bottom: .8rem;
-    margin-left: -0.4rem;
+    display: block;
+    box-shadow: 0px 0px 6px #ccc;
     text-align: center;
     line-height: .3rem;
-    background: #fbefc9;
-    margin-left: -.3rem;
+    background: white;
     border: 0 solid transparent; -moz-border-radius:.4rem;-webkit-border-radius:.4rem;border-radius:.4rem;
 }

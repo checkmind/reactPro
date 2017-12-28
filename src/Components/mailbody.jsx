@@ -82,6 +82,10 @@ class Child extends Component {
 					<div className='mailBody' ref='mailBody' onClick={this.closeBook}>
 						{words}
 			     	</div>
+			     	<div className='btnGroup'>
+			    		<span className='closeToast'></span>
+			    		<span className='editMail'></span>	
+			    	</div>
 			     </div>);
 			return el;
 		} else {

@@ -27,7 +27,7 @@ class TimeLine extends Component {
 				time: new Date()
 			}]
 		}
-		this.openBook = ()=>{
+		this.openBook = (id)=>{
 			this.setState({
 				open: true
 			})
@@ -37,19 +37,14 @@ class TimeLine extends Component {
 				open: false
 			})
 		}
-		this.props.getMailList();
-		console.log(this.props)
+
+		//this.props.getMailList();
+		
 	}	
 	render() {
 		let list = [],
-			mailbody;
-
-		for(let i = 0;i<14;i++){
-			list.push(<li key={Math.random()} onClick={this.openBook}>
-						<p>这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录这是一条备忘录</p>
-						<p>2017/12/01</p>
-					 </li>)
-		}
+			mailbody,
+			mailList = this.props.mailList;
 		if(this.state.open)
 		    	mailbody = <MailBody closeMail={this.closeMail}/>
 		return (
@@ -57,12 +52,19 @@ class TimeLine extends Component {
 		    <div className='bodyer'>
 		    	
 		    	<div className='list'>
-		    		{list}
+		    		{mailList.map((val)=>{
+		    			return (<li key={val.id} onClick={ ()=>this.openBook(val.id) }>
+									<p>{val.title}</p>
+									<p>{val.timer}</p>
+								</li>);
+		    		})}
 		    	</div>
 		    	{mailbody}
-		        <Link to='/EditBook' className='btnRadius'>+</Link> 
+		    	<div className='btnGroup'>
+		    		<Link to='/EditBook' className='btnRadius'>+</Link>	
+		    	</div>
 		    </div>
-		    <MyFoot page='0' unRead={this.props.unRead.unRead}/>
+		    <MyFoot page='0' unRead={typeof this.props.unRead==='number'?this.props.unRead:''}/>
 		  </div>
 		);
 	}

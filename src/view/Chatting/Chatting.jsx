@@ -16,7 +16,7 @@ class Chatting extends Component {
 	constructor(props, context) {
 		super(props, context)
 		 const { store } = this.context;
-		 this.props.readConfig(0)
+		 this.props.readConfig(10)
 		this.state = {
 				more: "more",
 				value: "",

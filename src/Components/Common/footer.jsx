@@ -26,9 +26,9 @@ class Child extends Component {
       unReadInf = <span>{unRead}</span>;
     }
     return (<div className='footer'>
-    			<Link to='/timeLine' className={classname[0]}>追忆</Link>
-    			<Link to='/chatting' className={classname[1]}>雁书{unReadInf}</Link>
-    			<Link to='/index' className={classname[2]}>吾</Link>
+    			<Link to='/timeLine' className={classname[0]}>追忆阁</Link>
+    			<Link to='/chatting' className={classname[1]}><p>雁书坊{unReadInf}</p></Link>
+    			<Link to='/index' className={classname[2]}>伏案</Link>
     		</div>)
   }
   componentWillMount() {

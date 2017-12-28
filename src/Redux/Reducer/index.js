@@ -1,6 +1,6 @@
 import { IS_LOGIN, UNREAD } from '../Action/index'
 import { REQUEST_POSTS, RECEIVE_POSTS } from '../Action/index'
-import { MAILLIST } from '../Action/index'
+import { MAILLIST, MAILLISTINIT } from '../Action/index'
 import Immutable from 'immutable';
 
 
@@ -24,29 +24,27 @@ export const loginOrNot = (state = {}, action = {} )=>{
     }
 	switch(action.type){
 		case IS_LOGIN:
-            state['isLogin'] = action.isLogin
-            return state
+            return action.isLogin
 		default: 
 			return state
 	}
 }
-export const unRead = (state = {}, action = {} ) =>{
-   // console.log(action.unread)
+export const unRead = (state = 0, action = {} ) =>{
     switch(action.type){
         case UNREAD:
-            state['unRead'] = action.unread
-            return state;
+            return action.unread;
         default:
             return state;
     }
 }
-export const mailList = ( state = {}, action = {} ) => {
-    console.log('set mail list',state.type)
+export const mailList = ( state = [], action = {} ) => {
+    console.log("看看")
+    console.log(action)
     switch(action.type){
         case MAILLIST:
-            state['mailLists'] = action.payload
-            console.log(state)
-            return state;
+            return [...state,...action.payload];
+        case MAILLISTINIT:
+            return [];
         default:
             return state;
     }

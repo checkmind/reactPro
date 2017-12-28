@@ -4,6 +4,7 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 export const UNREAD = 'UNREAD' // 是否有未读消息
 
 export const MAILLIST = 'MAILLIST'
+export const MAILLISTINIT = 'MAILLISTINIT'
 
 export const CHAATING = 'CHAATING'
 //开始获取数据
@@ -39,10 +40,18 @@ export const readConfig = (unread) =>{
   }
 }
 // 备忘录列表
-export const mailList = (payload)=>{
+export const mailListConfig = (payload)=>{
   //console.log("get mail list")
   return {
     type: MAILLIST,
+    payload
+  }
+}
+// 初始化备忘录列表
+export const mailListInit = (payload)=>{
+  //console.log("get mail list")
+  return {
+    type: MAILLISTINIT,
     payload
   }
 }
@@ -54,13 +63,16 @@ export const mailList = (payload)=>{
 export const getMailList = () => {
   return dispatch=>{
    // setTimeout(function(){
-      let items = [{
-          title: "记住出门带钥匙",
-          author: "杜浩",
-          timer : new Date()
-      }];
-      dispatch(mailList(items))
+      let items =[{
+                title: "记住出门带钥匙",
+                author: "杜浩",
+                id: 1,
+                timer : new Date().toString()
+            }];
+      dispatch(mailListInit([]))
+      dispatch(mailListConfig(items))
   //  },500)
   }
 }
+
 

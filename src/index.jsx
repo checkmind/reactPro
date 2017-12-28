@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 import store from './Redux/Store/';
 import registerServiceWorker from './registerServiceWorker';
 import {
-	 BrowserRouter as Router,
+	 HashRouter as Router,
 	 Route
 	} from 'react-router-dom';
 

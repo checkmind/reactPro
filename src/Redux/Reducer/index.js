@@ -1,6 +1,6 @@
 import { IS_LOGIN, UNREAD } from '../Action/index'
 import { REQUEST_POSTS, RECEIVE_POSTS } from '../Action/index'
-import { MAILLIST, MAILLISTINIT } from '../Action/index'
+import { MAILLIST, MAILLISTINIT, MAILWORDS } from '../Action/index'
 import Immutable from 'immutable';
 
 
@@ -45,6 +45,14 @@ export const mailList = ( state = [], action = {} ) => {
             return [...state,...action.payload];
         case MAILLISTINIT:
             return [];
+        default:
+            return state;
+    }
+}
+export const mailWords = ( state=[], action={} ) =>{
+    switch(action.type){
+        case MAILWORDS:
+            return [...state,...action.payload];
         default:
             return state;
     }

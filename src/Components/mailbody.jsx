@@ -60,30 +60,21 @@ class Child extends Component {
 
 			return arr;
 		}
-		this.closeBook = (ev)=>{
-			if(ev.target == document.querySelector('.mailBody')){
-				this.props.closeMail();
-				return;
-				this.setState({
-					show: false
-				})
-				console.log('close')
-			}
-		}
+		
 	}
 	render() {
 		let words = [],
 			el;
 		if(this.state.show){
 
-			words = this.getWordsAndFill(['锄禾','李绅','锄禾日当午','汗滴禾下土','谁知盘中餐','粒粒皆辛苦']);
+			words = this.getWordsAndFill(this.props.wordsArr);
 			words = this.fillWords(words)
 			el = (<div className='mailToast'>
-					<div className='mailBody' ref='mailBody' onClick={this.closeBook}>
+					<div className='mailBody' ref='mailBody' >
 						{words}
 			     	</div>
 			     	<div className='btnGroup'>
-			    		<span className='closeToast'></span>
+			    		<span className='closeToast' onClick={this.props.closeMail}></span>
 			    		<span className='editMail'></span>	
 			    	</div>
 			     </div>);

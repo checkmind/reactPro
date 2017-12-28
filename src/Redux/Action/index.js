@@ -7,6 +7,8 @@ export const MAILLIST = 'MAILLIST'
 export const MAILLISTINIT = 'MAILLISTINIT'
 
 export const CHAATING = 'CHAATING'
+// mail
+export const MAILWORDS = 'MAILWORDS'
 //开始获取数据
 export const requestPosts = path => {
   return {
@@ -55,7 +57,13 @@ export const mailListInit = (payload)=>{
     payload
   }
 }
-
+// 竹简内容
+export const mailWordsConfig = payload =>{
+  return {
+    type: MAILWORDS,
+    payload
+  }
+}
 /* 异步方法 */
 /*
  * 得到备忘录列表
@@ -75,4 +83,11 @@ export const getMailList = () => {
   }
 }
 
-
+/*
+ * 得到竹简
+**/
+export const getMailWords = (id)=> {
+  return dispatch => {
+    dispatch(mailWordsConfig(['锄禾','李绅','锄禾日当午','汗滴禾下土','谁知盘中餐','粒粒皆辛苦']))
+  }
+}

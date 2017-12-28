@@ -28,6 +28,8 @@ class TimeLine extends Component {
 			}]
 		}
 		this.openBook = (id)=>{
+			console.log(id)
+			this.props.getMailWords(id)
 			this.setState({
 				open: true
 			})
@@ -46,7 +48,7 @@ class TimeLine extends Component {
 			mailbody,
 			mailList = this.props.mailList;
 		if(this.state.open)
-		    	mailbody = <MailBody closeMail={this.closeMail}/>
+		    	mailbody = <MailBody closeMail={this.closeMail} wordsArr={this.props.mailWords}/>
 		return (
 		  <div className="timeline">
 		    <div className='bodyer'>

@@ -2,7 +2,7 @@
 @antherBack:url(../body.jpg) repeat;
 @headerBack:url(../header.png) repeat;
 @close:url(../close.png);
-@edit:url(../edit.png);
+@edit:url(~images/edit.png);
 html,body {
   margin: 0;
   padding: 0;

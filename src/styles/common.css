@@ -1,8 +1,8 @@
-@bodyerBack:url(../back.png);
-@antherBack:url(../body.jpg) repeat;
-@headerBack:url(../header.png) repeat;
-@close:url(../close.png);
-@edit:url(~images/edit.png);
+@bodyerBack:url(../images/back.png);
+@antherBack:url(../images/body.jpg) repeat;
+@headerBack:url(../images/header.png) repeat;
+@close:url(../images/close.png);
+@edit:url(../images/edit.png);
 html,body {
   margin: 0;
   padding: 0;

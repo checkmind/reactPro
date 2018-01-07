@@ -19,7 +19,7 @@ class TimeLine extends Component {
 	constructor(props,context){
 		super(props,context);
 		this.state = {
-			"open": false
+			"open": false,
 		}
 		this.fillList = () =>{
 			let arr = [{
@@ -27,9 +27,14 @@ class TimeLine extends Component {
 				time: new Date()
 			}]
 		}
-		this.openBook = (id)=>{
-			console.log(id)
-			this.props.getMailWords(id)
+		this.openBook = (content)=>{
+			console.log("内容是")
+			console.log(content)
+			content.replace(/\s/g,'')
+			console.log(content)
+			content = content.split(" ")
+			//this.props.getMailWords(id)
+			this.props.mailWordsConfig(content)
 			this.setState({
 				open: true
 			})
@@ -47,6 +52,7 @@ class TimeLine extends Component {
 		let list = [],
 			mailbody,
 			mailList = this.props.mailList;
+			console.log(mailList)
 		if(this.state.open)
 		    	mailbody = <MailBody closeMail={this.closeMail} wordsArr={this.props.mailWords}/>
 		return (
@@ -55,7 +61,7 @@ class TimeLine extends Component {
 		    	
 		    	<div className='list'>
 		    		{mailList.map((val)=>{
-		    			return (<li key={val.id} onClick={ ()=>this.openBook(val.id) }>
+		    			return (<li key={val.id} onClick={ ()=>this.openBook(val.title) }>
 									<p>{val.title}</p>
 									<p>{val.timer}</p>
 								</li>);

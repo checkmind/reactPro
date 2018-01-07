@@ -39,7 +39,6 @@ class EditBook extends Component {
 			obj.timer = new Date().toString();
 			obj.id = 3;
 			arr.push(str)
-			console.log(arr);
 			this.props.mailListConfig([obj]);
 			this.setState({
 				words: arr

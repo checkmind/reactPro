@@ -52,7 +52,7 @@ export const mailList = ( state = [], action = {} ) => {
 export const mailWords = ( state=[], action={} ) =>{
     switch(action.type){
         case MAILWORDS:
-            return [...state,...action.payload];
+            return action.payload;
         default:
             return state;
     }

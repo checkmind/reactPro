@@ -1,5 +1,13 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router-dom';
 import  '../styles/module/child.css'
+
+import createHashHistory  from 'history/createHashHistory'
+const history = createHashHistory()
 
 class Child extends Component {
 	constructor() {
@@ -60,11 +68,17 @@ class Child extends Component {
 
 			return arr;
 		}
-		
+		/*
+		 * 编辑竹简
+		**/
+		this.editMail = ()=>{
+			history.push('/EditBook?chooseId='+this.props.chooseId)
+		}
 	}
 	render() {
 		let words = [],
 			el;
+			console.log(this.props)
 		if(this.state.show){
 
 			words = this.getWordsAndFill(this.props.wordsArr);
@@ -74,8 +88,8 @@ class Child extends Component {
 						{words}
 			     	</div>
 			     	<div className='btnGroup'>
-			    		<span className='closeToast' onClick={this.props.closeMail}></span>
-			    		<span className='editMail'></span>	
+			    		<span className='closeToast' onClick={this.props.closeMail}></span>	
+			    		<span className='editMail' onClick={this.editMail}></span>	
 			    	</div>
 			     </div>);
 			return el;

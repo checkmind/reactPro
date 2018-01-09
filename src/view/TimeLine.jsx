@@ -20,6 +20,7 @@ class TimeLine extends Component {
 		super(props,context);
 		this.state = {
 			"open": false,
+			"chooseId": null
 		}
 		this.fillList = () =>{
 			let arr = [{
@@ -27,14 +28,14 @@ class TimeLine extends Component {
 				time: new Date()
 			}]
 		}
-		this.openBook = (content)=>{
-			console.log("内容是")
-			console.log(content)
-			content.replace(/\s/g,'')
-			console.log(content)
-			content = content.split(" ")
+		this.openBook = (content, id)=>{
+			//content.replace(/\n/g,"&")
 			//this.props.getMailWords(id)
-			this.props.mailWordsConfig(content)
+			console.log(id)
+			this.props.mailWordsConfig(content.replace(/\n/g," ").split(" "))
+			this.setState({
+				chooseId: id
+			})
 			this.setState({
 				open: true
 			})
@@ -52,16 +53,15 @@ class TimeLine extends Component {
 		let list = [],
 			mailbody,
 			mailList = this.props.mailList;
-			console.log(mailList)
 		if(this.state.open)
-		    	mailbody = <MailBody closeMail={this.closeMail} wordsArr={this.props.mailWords}/>
+		    	mailbody = <MailBody closeMail={this.closeMail} wordsArr={this.props.mailWords} chooseId={this.state.chooseId}/>
 		return (
 		  <div className="timeline">
 		    <div className='bodyer'>
-		    	
+
 		    	<div className='list'>
 		    		{mailList.map((val)=>{
-		    			return (<li key={val.id} onClick={ ()=>this.openBook(val.title) }>
+		    			return (<li key={val.id} onClick={ ()=>this.openBook(val.content, val.id) }>
 									<p>{val.title}</p>
 									<p>{val.timer}</p>
 								</li>);
